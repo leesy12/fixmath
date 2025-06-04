@@ -10,8 +10,9 @@ def parse_filename(image_path):
         raise ValueError("파일명 형식은 'year_month_subject_problem_number.png' 여야 합니다.")
 
     json_path = f"{parts[0]}_{parts[1]}.json"  # 연도, 월만 json_path로 사용
-    problem_number = int(parts[2])
-    subject = parts[3]
+    subject = parts[2]
+    problem_number = int(parts[3])
+    
     
 
     return json_path, subject, problem_number
