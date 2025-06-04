@@ -7,9 +7,7 @@ from openai import OpenAI, AuthenticationError, RateLimitError, APIConnectionErr
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
-@app.route("/", methods=["GET"])
-def index():
-    return "✅ 서버 실행 중입니다. /analyze로 POST 요청을 보내세요."
+app = Flask(__name__)
 
 # .env 불러오기
 load_dotenv()
