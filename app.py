@@ -123,5 +123,5 @@ def analyze():
         return jsonify({"error": str(e)}), 500
 
 # 서버 시작 (Render에서는 필요 없음, 로컬 디버깅용)
-if __name__ == "__main__":
-    app.run(debug=True)
+port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0', port=port)
