@@ -19,7 +19,7 @@ def parse_filename(image_path):
 
 def load_problem_data(json_path, subject, problem_number):
     try:
-        with open(f"json/{json_path}", 'r', encoding='utf-8') as file:
+        with open(json_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
             for problem in data:
                 if (problem['subject'] == subject and problem['problem_number'] == problem_number):
