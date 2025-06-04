@@ -104,7 +104,7 @@ def analyze():
         if len(parts) < 4:
             return jsonify({"error": "파일명 형식 오류"}), 400
 
-        json_path = f"{parts[0]}_{parts[1]}.json"  # 예: "2022_6월.json"
+        json_path = f"json/{parts[0]}_{parts[1]}.json"  # 예: "2022_6월.json"
         subject = parts[2]
         problem_number = int(parts[3])
 
