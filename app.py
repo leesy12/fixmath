@@ -52,7 +52,7 @@ def get_gpt_feedback(problem, user_solution):
 문제: {problem['question']}
 학생 풀이: {user_solution}
 정답: {problem['answer']}
-기준 풀이 방식: {problem['method']}
+기준 풀이 방식: {problem['solution_steps']}
 피드백 기준: {problem['feedback_criteria']}
 
 학생 풀이를 기준으로 올바른 풀이인지 판단하고, 피드백을 작성해 주세요.
@@ -95,8 +95,9 @@ def analyze():
             return jsonify({"error": "파일명 형식 오류"}), 400
 
         json_path = f"{parts[0]}_{parts[1]}.json"  # ex: 2022_6.json
-        subject = parts[2]
-        problem_number = int(parts[3])
+        problem_number = int(parts[2])
+        subject = parts[3]
+        
 
         # OCR → 수식
         user_solution = mathpix_ocr(save_path)
