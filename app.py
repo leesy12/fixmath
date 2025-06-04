@@ -108,19 +108,18 @@ def analyze():
         subject = parts[2]
         problem_number = int(parts[3])
 
-        problem = load_problem_data(json_path, problem_number)
 
-        # 디버깅 출력 추가
-        print("⬛ [DEBUG] json_path =", json_path)
+        # JSON 파일 경로 조정 (json/ 폴더 안에 있는 경우)
+        json_full_path = os.path.join("json", json_path)
+
+        problem = load_problem_data(json_full_path, problem_number)
+
+        print("⬛ [DEBUG] json_path =", json_full_path)
         print("⬛ [DEBUG] problem_number =", problem_number)
         print("⬛ [DEBUG] subject (from filename) =", repr(subject))
         print("⬛ [DEBUG] loaded problem =", problem)
         if problem:
             print("⬛ [DEBUG] problem['subject'] =", repr(problem["subject"]))
-
-
-        # JSON 파일 경로 조정 (json/ 폴더 안에 있는 경우)
-        json_full_path = os.path.join("json", json_path)
 
         # OCR 처리
         user_solution = mathpix_ocr(save_path)
@@ -129,6 +128,7 @@ def analyze():
         problem = load_problem_data(json_full_path, problem_number)
         if not problem or problem["subject"] != subject:
             return jsonify({"error": "문제 데이터를 찾을 수 없습니다."}), 404
+        
 
         # GPT 피드백
         feedback = get_gpt_feedback(problem, user_solution)
