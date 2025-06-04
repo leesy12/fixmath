@@ -98,7 +98,8 @@ def analyze():
         if len(parts) != 4:
             return jsonify({"error": "파일명 형식 오류"}), 400
 
-        json_path = f"{parts[0]}_{parts[1]}.json"  # ex: 2022_6.json
+        # JSON 경로 이렇게 수정
+        json_path = os.path.join("json", f"{parts[0]}_{parts[1]}.json")
         subject = parts[2]
         problem_number = int(parts[3])
         
