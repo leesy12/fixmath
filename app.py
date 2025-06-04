@@ -102,6 +102,10 @@ def analyze():
         json_path = os.path.join("json", f"{parts[0]}_{parts[1]}.json")
         subject = parts[2]
         problem_number = int(parts[3])
+
+        print("[DEBUG] json_path =", json_path)
+        print("[DEBUG] problem_number =", problem_number)
+        print("[DEBUG] parsed subject =", subject)
         
         
 
@@ -131,6 +135,4 @@ def analyze():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-    print(f"🔍 filename: {filename}")
-    print(f"🔍 parsed subject from filename: {subject}")
-    print(f"🔍 loaded problem data subject: {problem['subject']}")
+    
