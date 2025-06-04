@@ -103,7 +103,7 @@ def analyze():
 
         # 문제 데이터 로드
         problem = load_problem_data(json_path, problem_number)
-        if (not problem):  #or (problem["subject"] != subject):
+        if (problem["subject"] != subject):
             return jsonify({"error": "문제 데이터를 찾을 수 없습니다."}), 404
 
         # GPT 피드백
