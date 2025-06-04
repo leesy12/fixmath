@@ -6,8 +6,7 @@ from flask import Flask, request, jsonify
 from openai import OpenAI, AuthenticationError, RateLimitError, APIConnectionError
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
-from flask_cors import CORS
-CORS(app)
+
 
 # .env 불러오기
 load_dotenv()
