@@ -95,8 +95,9 @@ def analyze():
             return jsonify({"error": "파일명 형식 오류"}), 400
 
         json_path = f"{parts[0]}_{parts[1]}.json"  # ex: 2022_6.json
-        problem_number = int(parts[2])
-        subject = parts[3]
+        subject = parts[2]
+        problem_number = int(parts[3])
+        
         
 
         # OCR → 수식
