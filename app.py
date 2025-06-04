@@ -51,7 +51,7 @@ def mathpix_ocr(image_path):
 
 # ✅ 문제 데이터 불러오기
 def load_problem_data(json_path, problem_number):
-    with open(json_path, 'r', encoding='utf-8') as file:
+    with open(f"json/{json_path}", 'r', encoding='utf-8') as file:
         data = json.load(file)
         # ✅ JSON이 리스트일 경우만 작동
         return next((item for item in data if item['problem_number'] == problem_number), None)
