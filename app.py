@@ -23,7 +23,7 @@ def analyze():
         # 이미지와 문제번호 받기
         file = request.files['image']
         problem_number = int(request.form['problem_number'])
-        json_path = request.form.get('json_path', '2022_6월.json')  # 기본 json
+        json_path = request.form.get('json_path')  # 기본 json
 
         # 이미지 저장
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
