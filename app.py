@@ -51,7 +51,7 @@ def mathpix_ocr(image_path):
 
 # ✅ 문제 데이터 불러오기
 def load_problem_data(json_path, problem_number):
-    with open(f"json/{json_path}", 'r', encoding='utf-8') as file:
+    with open(json_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
         # ✅ JSON이 리스트일 경우만 작동
         return next((item for item in data if item['problem_number'] == problem_number), None)
@@ -104,13 +104,13 @@ def analyze():
         if len(parts) < 4:
             return jsonify({"error": "파일명 형식 오류"}), 400
 
-        json_path = f"json/{parts[0]}_{parts[1]}.json"  # 예: "2022_6월.json"
+        json_path = f"{parts[0]}_{parts[1]}.json"  # 예: "2022_6월.json"
         subject = parts[2]
         problem_number = int(parts[3])
 
 
-        # JSON 파일 경로 조정 (json/ 폴더 안에 있는 경우)
-        json_full_path = os.path.join("json", json_path)
+        json_full_path = json_path
+
 
         problem = load_problem_data(json_full_path, problem_number)
 
