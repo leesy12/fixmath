@@ -1,11 +1,4 @@
-import os
-import json
-import base64
-import requests
-from flask import Flask, request, jsonify
-from werkzeug.utils import secure_filename
-from openai import OpenAI, AuthenticationError, RateLimitError, APIConnectionError
-from dotenv import load_dotenv
+
 
 # .env 불러오기
 load_dotenv()
