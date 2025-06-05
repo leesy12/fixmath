@@ -1,6 +1,4 @@
-import os
-import json
-import base64
+
 import requests
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
